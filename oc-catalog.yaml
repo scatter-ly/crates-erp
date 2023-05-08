@@ -1,0 +1,102 @@
+apiVersion: opencontext.com/v1alpha1
+kind: CodeComponentSidecar
+metadata:
+  namespace: scatter-ly
+  name: crates-erp-extras
+  links:
+    - url: https://cybersquirrel1.com/
+      title: Cyber Squirrel
+      icon: dashboard
+    - url: https://example.com/user
+      title: Examples Users
+      icon: user
+    - url: https://example.com/group
+      title: Example Group
+      icon: group
+    - url: https://example.com/cloud
+      title: Link with Cloud Icon
+      icon: cloud
+    - url: https://example.com/dashboard
+      title: Dashboard
+      icon: dashboard
+    - url: https://example.com/help
+      title: Support
+      icon: help
+    - url: https://example.com/web
+      title: Website
+      icon: web
+    - url: https://example.com/alert
+      title: Alerts
+      icon: alert
+spec:
+  codecomponent: scatter-ly/crates-erp
+  platform: crates
+  lifecycle: production
+---
+apiVersion: opencontext.com/v1alpha1
+kind: AuxComponent
+metadata:
+  namespace: scatter-ly
+  name: crates-erp-rfc
+  title: ERP Architectural RFC
+  description: Crates ERP Architectural RFC
+  tags:
+    - rfc
+spec:
+  type: document
+  lifecycle: production
+  owner: [scatter-ly/prod-squirrel]
+  platform: crates
+  uri: https://www.notion.so/opencontext/Crates-ERP-Architectural-RFC-282de1305a614140ac630fae1601e65e
+  dependsOn: [code-component:scatter-ly/crates-erp]
+---
+apiVersion: opencontext.com/v1alpha1
+kind: AuxComponent
+metadata:
+  namespace: scatter-ly
+  name: crates-erp-rules
+  title: ERP Compliance Rules
+  description: Crates ERP Compliance Rules
+  tags:
+    - compliance
+spec:
+  type: document
+  lifecycle: production
+  owner: [scatter-ly/eng-squirrel]
+  platform: crates
+  uri: https://www.notion.so/opencontext/Crates-ERP-Compliance-Rules-8ce786dee95142138a883280eefb59a9
+  dependsOn: [code-component:scatter-ly/crates-erp]
+---
+apiVersion: opencontext.com/v1alpha1
+kind: AuxComponent
+metadata:
+  namespace: scatter-ly
+  name: crates-erp-security
+  title: ERP Threat Model
+  description: Crates ERP Threat Model
+  tags:
+    - security
+spec:
+  type: document
+  lifecycle: production
+  owner: [scatter-ly/eng-squirrel]
+  platform: crates
+  uri: https://www.notion.so/opencontext/Crates-ERP-Threat-Model-cb23445f42ad43a3be217621c3a46148
+  dependsOn: [code-component:scatter-ly/crates-erp]
+---
+apiVersion: opencontext.com/v1alpha1
+kind: AuxComponent
+metadata:
+  namespace: scatter-ly
+  name: crates-erp-ownership
+  title: ERP Service Ownership
+  description: Crates ERP Service Ownership documentation
+  tags:
+    - docs
+spec:
+  type: document
+  lifecycle: production
+  owner: [scatter-ly/prod-squirrel]
+  platform: crates
+  uri: https://www.notion.so/opencontext/Crates-ERP-Service-Ownership-Doc-6e53655f504e4aeaa74cb18c3e82bc74
+  dependsOn: [code-component:scatter-ly/crates-erp]
