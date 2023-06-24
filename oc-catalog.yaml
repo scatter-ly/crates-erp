@@ -100,3 +100,78 @@ spec:
   platform: crates
   uri: https://www.notion.so/opencontext/Crates-ERP-Service-Ownership-Doc-6e53655f504e4aeaa74cb18c3e82bc74
   dependsOn: [code-component:scatter-ly/crates-erp]
+---
+apiVersion: opencontext.com/v1alpha1
+kind: PlatformComponent
+metadata:
+  namespace: scatter-ly
+  name: crates-db
+  description: Crates ERP data warehouse
+  links:
+    - url: https://example.com/cloud
+      title: Cloud Console
+      icon: cloud
+    - url: https://example.com/dashboard
+      title: Crates DB Dashboard
+      icon: dashboard
+  #annotations:
+  #  pagerduty.com/integration-key: 'PAGERDUTY_INTEGRATION_KEY'
+spec:
+  type: database
+  subtype: 'mysql 8'
+  lifecycle: production
+  owner: [scatter-ly/eng-squirrel]
+  platform: [scatter-ly/crates]
+  datacenter: [scatter-ly/aws]
+  dependsOn: [datacenter:scatter-ly/aws]
+  dependencyOf: [code-component:scatter-ly/crates-erp]
+  priority: 2
+  sla: 24x5
+---
+apiVersion: opencontext.com/v1alpha1
+kind: PlatformComponent
+metadata:
+  namespace: scatter-ly
+  name: crates-config
+  description: Crates config bucket
+  links:
+    - url: https://aws.amazon.com/console
+      title: AWS Cloud Console
+      icon: cloud
+    - url: https://example.com/crate-config-docs
+      title: Crates config docs
+      icon: docs
+  annotations:
+    pagerduty.com/service-id: PZ4K9HQ
+spec:
+  type: s3
+  subtype: private
+  lifecycle: production
+  owner: [scatter-ly/eng-squirrel]
+  platform: [scatter-ly/crates]
+  datacenter: [scatter-ly/aws]
+  dependencyOf: [platform-component:scatter-ly/crates-db, code-component:scatter-ly/crates-erp]
+  uri: s3://crates-config
+  priority: 3
+  sla: 24x5
+---
+apiVersion: opencontext.com/v1alpha1
+kind: PlatformComponent
+metadata:
+  namespace: scatter-ly
+  name: crates-ssl
+  description: Crates SSL
+  links:
+    - url: https://example.com/crate-ssl-docs
+      title: Crates SSL docs
+      icon: docs
+spec:
+  type: ssl certificate
+  lifecycle: production
+  owner: [scatter-ly/eng-squirrel]
+  platform: [scatter-ly/crates]
+  datacenter: [scatter-ly/aws]
+  dependencyOf: [platform-component:scatter-ly/crates-db, code-component:scatter-ly/crates-erp]
+  priority: 3
+  sla: 24x5
+
