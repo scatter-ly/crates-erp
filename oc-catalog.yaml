@@ -101,32 +101,32 @@ spec:
   uri: https://www.notion.so/opencontext/Crates-ERP-Service-Ownership-Doc-6e53655f504e4aeaa74cb18c3e82bc74
   dependsOn: [code-component:scatter-ly/crates-erp]
 ---
-apiVersion: opencontext.com/v1alpha1
-kind: PlatformComponent
-metadata:
-  namespace: scatter-ly
-  name: crates-db
-  description: Crates ERP data warehouse
-  links:
-    - url: https://example.com/cloud
-      title: Cloud Console
-      icon: cloud
-    - url: https://example.com/dashboard
-      title: Crates DB Dashboard
-      icon: dashboard
-  #annotations:
-  #  pagerduty.com/integration-key: 'PAGERDUTY_INTEGRATION_KEY'
-spec:
-  type: database
-  subtype: 'mysql 8'
-  lifecycle: production
-  owner: [scatter-ly/eng-squirrel]
-  service: [scatter-ly/crates]
-  datacenter: [scatter-ly/aws]
-  dependsOn: [datacenter:scatter-ly/aws]
-  dependencyOf: [code-component:scatter-ly/crates-erp]
-  priority: 2
-  sla: 24x5
+#apiVersion: opencontext.com/v1alpha1
+#kind: PlatformComponent
+#metadata:
+#  namespace: scatter-ly
+#  name: crates-db
+#  description: Crates ERP data warehouse
+#  links:
+#    - url: https://example.com/cloud
+#      title: Cloud Console
+#      icon: cloud
+#    - url: https://example.com/dashboard
+#      title: Crates DB Dashboard
+#      icon: dashboard
+#  #annotations:
+#  #  pagerduty.com/integration-key: 'PAGERDUTY_INTEGRATION_KEY'
+#spec:
+#  type: database
+#  subtype: 'mysql 8'
+#  lifecycle: production
+#  owner: [scatter-ly/eng-squirrel]
+#  service: [scatter-ly/crates]
+#  datacenter: [scatter-ly/aws]
+#  dependsOn: [datacenter:scatter-ly/aws]
+#  dependencyOf: [code-component:scatter-ly/crates-erp]
+#  priority: 2
+#  sla: 24x5
 ---
 apiVersion: opencontext.com/v1alpha1
 kind: PlatformComponent
