@@ -30,7 +30,7 @@ metadata:
       icon: alert
 spec:
   codecomponent: scatter-ly/crates-erp
-  platform: crates
+  service: crates
   lifecycle: production
 ---
 apiVersion: opencontext.com/v1alpha1
@@ -46,7 +46,7 @@ spec:
   type: document
   lifecycle: production
   owner: [scatter-ly/prod-squirrel]
-  platform: crates
+  service: crates
   uri: https://www.notion.so/opencontext/Crates-ERP-Architectural-RFC-282de1305a614140ac630fae1601e65e
   dependsOn: [code-component:scatter-ly/crates-erp]
 ---
@@ -63,7 +63,7 @@ spec:
   type: document
   lifecycle: production
   owner: [scatter-ly/eng-squirrel]
-  platform: crates
+  service: crates
   uri: https://www.notion.so/opencontext/Crates-ERP-Compliance-Rules-8ce786dee95142138a883280eefb59a9
   dependsOn: [code-component:scatter-ly/crates-erp]
 ---
@@ -80,7 +80,7 @@ spec:
   type: document
   lifecycle: production
   owner: [scatter-ly/eng-squirrel]
-  platform: crates
+  service: crates
   uri: https://www.notion.so/opencontext/Crates-ERP-Threat-Model-cb23445f42ad43a3be217621c3a46148
   dependsOn: [code-component:scatter-ly/crates-erp]
 ---
@@ -97,7 +97,7 @@ spec:
   type: document
   lifecycle: production
   owner: [scatter-ly/prod-squirrel]
-  platform: crates
+  service: crates
   uri: https://www.notion.so/opencontext/Crates-ERP-Service-Ownership-Doc-6e53655f504e4aeaa74cb18c3e82bc74
   dependsOn: [code-component:scatter-ly/crates-erp]
 ---
@@ -121,7 +121,7 @@ spec:
   subtype: 'mysql 8'
   lifecycle: production
   owner: [scatter-ly/eng-squirrel]
-  platform: [scatter-ly/crates]
+  service: [scatter-ly/crates]
   datacenter: [scatter-ly/aws]
   dependsOn: [datacenter:scatter-ly/aws]
   dependencyOf: [code-component:scatter-ly/crates-erp]
@@ -148,7 +148,7 @@ spec:
   subtype: private
   lifecycle: production
   owner: [scatter-ly/eng-squirrel]
-  platform: [scatter-ly/crates]
+  service: [scatter-ly/crates]
   datacenter: [scatter-ly/aws]
   dependencyOf: [platform-component:scatter-ly/crates-db, code-component:scatter-ly/crates-erp]
   uri: s3://crates-config
@@ -169,9 +169,8 @@ spec:
   type: ssl certificate
   lifecycle: production
   owner: [scatter-ly/eng-squirrel]
-  platform: [scatter-ly/crates]
+  service: [scatter-ly/crates]
   datacenter: [scatter-ly/aws]
   dependencyOf: [platform-component:scatter-ly/crates-db, code-component:scatter-ly/crates-erp]
   priority: 3
   sla: 24x5
-
