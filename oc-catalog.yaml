@@ -139,3 +139,26 @@ spec:
   dependencyOf: [platform-component:scatter-ly/crates-db, code-component:scatter-ly/crates-erp]
   priority: 3
   sla: 24x5
+---
+apiVersion: opencontext.com/v1alpha1
+kind: AuxComponent
+metadata:
+  namespace: scatter-ly
+  name: crates-erp-3f2ec0c-sbom-spdx.json
+  title: crates-erp-3f2ec0c-sbom-spdx.json
+  links:
+    - url: https://github.com/scatter-ly/crates-erp/releases/download/v0.0.1/crates-erp-3f2ec0c-sbom-spdx.json
+      title: crates-erp-3f2ec0c-sbom-spdx.json
+    - url: https://github.com/scatter-ly/crates-erp/actions/runs/6580365437
+      title: GitHub Action Run 6580365437
+  annotations:
+    github.com/project-slug: scatter-ly/crates-erp
+spec:
+  type: sbom
+  uri: https://github.com/scatter-ly/crates-erp/releases/download/v0.0.1/crates-erp-3f2ec0c-sbom-spdx.json
+  lifecycle: production
+  owner:
+    - scatter-ly/alchen99
+  dependsOn:
+    - codecomponent:scatter-ly/crates-erp
+
