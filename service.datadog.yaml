@@ -1,0 +1,10 @@
+---
+schema-version: v2.1
+dd-service: crates-erp
+team: eng-squirrel
+application: "crates"
+links:
+  - name: https://github.com/scatter-ly/crates-erp
+    type: repo
+    provider: github
+    url: https://github.com/scatter-ly/crates-erp
